@@ -10,25 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WPF_Application_TicTacToe
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OptionWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OptionWindow : Window
     {
-        public MainWindow()
+        public OptionWindow()
         {
             InitializeComponent();
         }
 
-        private void Btn2Player_Click(object sender, RoutedEventArgs e)
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            OptionWindow Option = new OptionWindow();
-            Option.Show();
+            GameWindow gameWindow = new GameWindow();
+            gameWindow.Show();
             this.Close();
         }
     }
