@@ -46,7 +46,7 @@
         </Viewbox>
 
         <Viewbox Grid.Column="4" Grid.Row="3">
-            <ComboBox>
+            <ComboBox x:Name="cbPlayer1" DropDownClosed="ComboBoxPlayer1_DropDownClosed">
                 <ComboBoxItem Content="X"/>
                 <ComboBoxItem Content="O"/>
             </ComboBox>
@@ -54,7 +54,7 @@
 
 
         <Viewbox Grid.Column="4" Grid.Row="4">
-            <ComboBox>
+            <ComboBox x:Name="cbPlayer2" DropDownClosed="ComboBoxPlayer2_DropDownClosed">
                 <ComboBoxItem Content="X"/>
                 <ComboBoxItem Content="O"/>
             </ComboBox>

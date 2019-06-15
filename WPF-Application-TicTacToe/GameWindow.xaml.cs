@@ -22,11 +22,14 @@ namespace WPF_Application_TicTacToe
         TileMark[] Gameboard;
         bool Gameend;
         bool PlayerTurn;
+
+        // true = x ; false = o
         bool PlayerMark;
 
-        public GameWindow()
+        public GameWindow(bool Mark)
         {
             InitializeComponent();
+            PlayerMark = Mark;
             NewGame();
         }
 
@@ -53,15 +56,17 @@ namespace WPF_Application_TicTacToe
             var row = Grid.GetRow(button) - 1;
             var index = column + (row * 3);
 
-            Gameboard[index] = PlayerTurn == true ? TileMark.X : TileMark.O;
 
+            Gameboard[index] = PlayerTurn == true ? (PlayerMark == true ? TileMark.X : TileMark.O) : (PlayerMark == true ? TileMark.X : TileMark.O);
 
-            textBlock.Text = PlayerTurn == true ? "X" : "O";
+            textBlock.Text = PlayerTurn == true ? (PlayerMark == true ? "X" : "O") : (PlayerMark == true ? "X" : "O");
+
             CheckWinner();
 
             if (Gameend == false)
             {
                 PlayerTurn = !PlayerTurn;
+                PlayerMark = !PlayerMark;
                 tbPlayerTurn.Text = PlayerTurn == true ? "Player 1 Turn" : "Player 2 Turn";
             }
             else
@@ -104,6 +109,7 @@ namespace WPF_Application_TicTacToe
             else if (Gameboard[2] != TileMark.Blank && Gameboard[2] == (Gameboard[2] & Gameboard[4] & Gameboard[6]))
                 Gameend = true;
 
+            //Tie
         }
 
     }

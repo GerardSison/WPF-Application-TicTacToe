@@ -26,9 +26,21 @@ namespace WPF_Application_TicTacToe
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow();
+            bool Mark = cbPlayer1.Text == "X" ? true : false;
+            GameWindow gameWindow = new GameWindow(Mark);
             gameWindow.Show();
             this.Close();
+        }
+
+
+        private void ComboBoxPlayer1_DropDownClosed(object sender, EventArgs e)
+        {
+            cbPlayer2.Text = cbPlayer1.Text == "X" ? "O" : "X";
+        }
+
+        private void ComboBoxPlayer2_DropDownClosed(object sender, EventArgs e)
+        {
+            cbPlayer1.Text = cbPlayer2.Text == "X" ? "O" : "X";
         }
     }
 }
